@@ -1,0 +1,26 @@
+version: '3.1'
+
+services:
+  adminer:
+    image: adminer
+     restart: always
+    ports:
+      - "8080:8080"
+
+
+  db:
+    image: mysql:5.7
+    volumes:
+      - wptut:/var/lib/mysql
+    environment:
+      MYSQL_ROOT_PASSWORD: password # default USER is root and add password of your own choice
+
+  wordpress:
+    build: ./wordpress
+    volumes:
+      - ./wp-content:/var/www/html/wp-content
+    ports:
+      - 80:80
+
+volumes:
+  wptut:
