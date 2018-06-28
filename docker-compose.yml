@@ -3,7 +3,7 @@ version: '3.1'
 services:
   adminer:
     image: adminer
-     restart: always
+    restart: always
     ports:
       - "8080:8080"
 
